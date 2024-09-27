@@ -97,7 +97,7 @@ const Player = () => {
             className="player-item"
             onClick={() => handlePlayerClick(player)}
           >
-            <img src={player.image} alt={player.name} width="50" />
+            <img src={player.image_url} alt={player.name} width="50" />
             <div className="player-info">
               <div className="player-name">
                 {player.name}
@@ -130,7 +130,7 @@ const Player = () => {
           <div className="modal-content">
             <span className="close" onClick={closeModal}>&times;</span>
             <div className="modal-header">
-              <img src={selectedPlayer.image} alt={selectedPlayer.name} className="modal-image" />
+              <img src={selectedPlayer.image_url} alt={selectedPlayer.name} className="modal-image" />
               <div className="modal-info">
                 <h2 className="modal-name">{selectedPlayer.name}</h2>
                 <a href="#" className="cheer-link">응원가 바로가기 &gt;</a>
@@ -155,13 +155,13 @@ const Player = () => {
                   {selectedPlayer.birth}
                 </span>
               </div>
-              <div className='line10'></div>
+              {/* <div className='line10'></div>
               <div className="modal-detail-item">
                 <span style={{fontFamily: 'Pretendard-SemiBold'}}>입단</span>
                 <span style={{ marginLeft: '63px', fontFamily:'Pretendard-Medium', color:'#767676' }}>
                   {selectedPlayer.join_date}
                 </span>
-              </div>
+              </div> */}
               <div className='line10'></div>
               <div className="modal-detail-item">
                 <span style={{fontFamily: 'Pretendard-SemiBold'}}>신장</span>

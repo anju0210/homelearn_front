@@ -21,7 +21,7 @@
   position: absolute;
   top: 70px;
   left: 34px;
-  font-size: 28pt;
+  font-size: 18pt;
   color: #fff;
   font-family: Pretendard-ExtraBold;
   white-space: nowrap; /* 줄 바꿈을 방지합니다. */
@@ -34,7 +34,7 @@
   position: absolute;
   top: 138px;
   left: 34px;
-  font-size: 16pt;
+  font-size: 14pt;
   color: #fff;
   font-family: Pretendard-Bold;
   text-decoration: none;
@@ -84,4 +84,6 @@
   color: #000; 
   font-size: 18px;
   line-height: 1.5; /* 기존 설정 */
+  margin-left: 40px;
+  margin-right: 40px;
 }
