@@ -25,10 +25,8 @@ const ReviewWrite = () => {
     };
 
     const handleCompleteClick = async () => {
-        // 로컬 스토리지에서 userId 가져오기
         const userId = localStorage.getItem('userId');
         
-        // 필수 필드 체크
         if (!storeId || !text.trim() || rating === 0 || !userId) {
             setError('모든 필드를 채워주세요. (상점, 리뷰 내용, 별점, 유저 아이디)');
             return;
@@ -37,24 +35,26 @@ const ReviewWrite = () => {
         try {
             const formData = new FormData();
             formData.append('shopId', storeId);
-            formData.append('userId', userId);  // 로컬 스토리지에서 가져온 userId
+            formData.append('userId', userId);
             formData.append('content', text);
             formData.append('rating', rating);
             if (imageFile) {
                 formData.append('image', imageFile);
             }
 
-            const response = await axios.post(`http://localhost:5000/api/foodshopreview/${process.env.REACT_APP_API_KEY}`, formData, {
+            const response = await axios.post(`http://3.138.127.122:5000/api/foodshopreview/${process.env.REACT_APP_API_KEY}`, formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data'  
                 }
             });
-            
+
+            const uploadedImagePath = response.data.imagePath; // 서버로부터 이미지 경로 받기
+            setImagePreview(`http://3.138.127.122:5000/uploads/${uploadedImagePath}`);
 
             setReviews([...reviews, response.data]);
             navigate(-1);
         } catch (err) {
-            console.error("Response data:", err.response ? err.response.data : err);
+            console.error(err);
             setError('리뷰 작성에 실패했습니다.');
         }
     };
@@ -63,7 +63,7 @@ const ReviewWrite = () => {
         const file = e.target.files[0];
         if (file) {
             setImageFile(file);
-            setImagePreview(URL.createObjectURL(file)); // 미리보기 URL 생성
+            setImagePreview(URL.createObjectURL(file)); // 업로드 전 미리보기
         }
     };
 

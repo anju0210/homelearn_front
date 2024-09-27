@@ -151,10 +151,12 @@
 .scheduleCon1 {
     width: 301px;
     height: 132px;
-    background-color: grey;
+    background-color: #7ED8CF;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .scheduleCon2 {

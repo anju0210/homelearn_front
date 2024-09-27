@@ -53,8 +53,9 @@ const ComuMain = () => {
         fetchPosts();
     }, []);
 
-
-    const team = TeamNum.find(team => team.team_num === parseInt(team_id, 10));
+    const storedTeamName = localStorage.getItem('team');
+    //const team_n = TeamNum.find(team_n => team_n.team_name === storedTeamName);
+    const team = TeamNum.find(team => team.team_name === storedTeamName);
     const navItems = ['전체', team ? team.team_name : ''];
 
     const handleItemClick = (item) => {

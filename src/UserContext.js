@@ -4,10 +4,12 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [kakao_Id, setKakao_Id] = useState('');
-  const [id, setId] = useState('1');
-  const [team_id, setTeam_id] = useState('3');
-  const [name, setName] = useState('야구보구싶구');
+  const [id, setId] = useState('');
+  const [team_id, setTeam_id] = useState('');
+  const [name, setName] = useState('');
   const [image_url, setImage_url] = useState('');
+
+  const isNameEmpty = name === '';
 
   useEffect(() => {
     const savedKakaoId = localStorage.getItem('kakao_Id');
@@ -29,7 +31,7 @@ export const UserProvider = ({ children }) => {
   }, [kakao_Id, name, team_id, image_url]);
 
   return (
-    <UserContext.Provider value={{ kakao_Id, setKakao_Id, id, setId, team_id, setTeam_id, name, setName, image_url, setImage_url }}>
+    <UserContext.Provider value={{ kakao_Id, setKakao_Id, id, setId, team_id, setTeam_id, name, setName, image_url, setImage_url, isNameEmpty }}>
       {children}
     </UserContext.Provider>
   );

@@ -14,6 +14,32 @@ import nextRink_icon from "../image/nextRink_icon.png";
 import heartIcon from "../image/heartIcon.png";
 import commentIcon from "../image/commentIcon.png";
 
+// 로고
+import ba from "../image/teamImage/ba.png";
+import dn from "../image/teamImage/dn.png";
+import eg from "../image/teamImage/eg.png";
+import gn from "../image/teamImage/gn.png";
+import kt from "../image/teamImage/kt.png";
+import ld from "../image/teamImage/ld.png";
+import kw from "../image/teamImage/kw.png";
+import li from "../image/teamImage/li.png";
+import tg from "../image/teamImage/tg.png";
+import tw from "../image/teamImage/tw.png";
+import { Margin } from "@mui/icons-material";
+
+const teams = [
+  { name: "두산", image: ba },
+  { name: "NC", image: dn },
+  { name: "한화", image: eg },
+  { name: "롯데", image: gn },
+  { name: "KT", image: kt },
+  { name: "SSG", image: ld },
+  { name: "키움", image: kw },
+  { name: "삼성", image: li },
+  { name: "KIA", image: tg },
+  { name: "LG", image: tw }
+];
+
 const Home = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [selectedDayIndex, setSelectedDayIndex] = useState(null); 
@@ -112,6 +138,14 @@ const Home = () => {
     handleButtonClick2();
   }
 
+  const commonStyle = {
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    width: '100%',
+    height: '100%',
+  };
+
   const sortedComuImfo = comuImfo.sort((a, b) => b.comu_heart - a.comu_heart);
 
   const getDaysOfWeek = () => {
@@ -144,6 +178,16 @@ const Home = () => {
     return homeground ? homeground.ground : "Unknown";
   };
 
+  const getTeamImage = (teamName) => {
+    const team = teams.find(t => t.name === teamName);
+    return team ? team.image : null;
+  };
+
+  const getHomeTeamImage = (teamName) => {
+    const team = teams.find(t => t.name === teamName);
+    return team ? team.image : null;
+  };
+
   return (
     <div className="Hcontainer">
       <div className="container3">
@@ -170,13 +214,27 @@ const Home = () => {
         <nav className="Hnav1">
           <div className="schedule">
             {loading ? (
-              <p>Loading...</p>
+              <p></p>
             ) : error ? (
               <p>Error: {error.message}</p>
             ) : (
               filteredGames.map((game, index) => (
                 <div className="scheduleCon" key={index}>
-                  <div className="scheduleCon1"></div>
+                  <div className="scheduleCon1">
+                    <div
+                      className="teamImg1"
+                      style={{
+                        ...commonStyle,
+                        backgroundImage: `url(${getTeamImage(game.team_away)})`
+                      }}
+                    />
+                    <div className="teamImg2"
+                      style={{
+                        ...commonStyle,
+                        backgroundImage: `url(${getHomeTeamImage(game.team_home)})`
+                      }}
+                    />
+                  </div>
                   <div className="scheduleCon2">
                     <div className="scheduleImfo">
                       <div id="schedule_title">
