@@ -45,7 +45,7 @@ const App = () => {
         {isNameEmpty ? (
           <>
             <Route path="/" element={<Start />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/auth/call" element={<Login />} />
             <Route path="/home" element={<><BottomNav /><Home /></>} />
           </>
         ) : (
