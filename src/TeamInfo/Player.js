@@ -19,7 +19,7 @@ const Player = () => {
     const fetchPlayers = async () => {
       console.log("팀 ID:", teamId); // teamId 확인
       try {
-        const response = await axios.get(`http://3.138.127.122:5000/api/teammember/${process.env.REACT_APP_API_KEY}`); // teamId를 사용하여 API 호출
+        const response = await axios.get(`http://localhost:5000/api/teammember/${process.env.REACT_APP_API_KEY}`); // teamId를 사용하여 API 호출
         setPlayers(response.data); // 모든 선수 데이터를 가져옴
       } catch (error) {
         console.error("선수 정보를 가져오는 데 오류가 발생했습니다:", error);

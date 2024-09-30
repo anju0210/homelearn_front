@@ -39,18 +39,26 @@ import { UserContext } from './UserContext';
 
 const App = () => {
   const { isNameEmpty } = useContext(UserContext);
+  console.log(isNameEmpty);
   return (
     <Router>
       <Routes>
-        {isNameEmpty ? (
+        {/* {isNameEmpty ? (
           <>
             <Route path="/" element={<Start />} />
             <Route path="/auth/call" element={<Login />} />
             <Route path="/home" element={<><BottomNav /><Home /></>} />
+
           </>
         ) : (
-          <Route path="/" element={<><BottomNav /><Home /></>} />
-        )}
+          <>
+            <Route path="/" element={<><BottomNav /><Home /></>} />
+          </>
+        )} */}
+        
+        <Route path="/" element={<Start />} />
+        <Route path="/auth/call" element={<Login />} />
+        <Route path="/home" element={<><BottomNav /><Home /></>} />
         {/* <Route path="/" element={<UserManagement />} /> */}
         {/* <Route path="/login" element={<SocialKakao />} /> */}
         {/* <Route path="/home" element={<><Hometest /></>} /> */}

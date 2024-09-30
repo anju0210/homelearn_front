@@ -40,7 +40,7 @@ const Login = () => {
 
     const handleKakaoLogin = async (code) => {
         try {
-            const response = await axios.post(`http://3.138.127.122:5000/api/user/${apikey}`, { code });
+            const response = await axios.post(`http://localhost:5000/api/user/${apikey}`, { code });
             const { kakaoId, name } = response.data;
 
             localStorage.setItem('kakaoId', kakaoId);
@@ -66,7 +66,7 @@ const Login = () => {
             localStorage.setItem('team', team);
             localStorage.setItem('kakaoId', kakaoId);
 
-            const response = await axios.post(`http://3.138.127.122:5000/api/user/${apikey}`, {
+            const response = await axios.post(`http://localhost:5000/api/user/${apikey}`, {
                 kakaoId,
                 name: localName,
                 baseball_team_name: team,

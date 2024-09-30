@@ -38,7 +38,7 @@ function Profile() {
       };
 
       // 사용자 정보 업데이트 요청
-      await axios.put(`http://3.138.127.122:5000/api/user/${process.env.REACT_APP_API_KEY}/${userId}`, updatedUser);
+      await axios.put(`http://localhost:5000/api/user/${process.env.REACT_APP_API_KEY}/${userId}`, updatedUser);
       console.log('사용자 정보 업데이트 성공');
 
       // Context와 localStorage 업데이트

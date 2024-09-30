@@ -29,7 +29,7 @@ const Cheersong = () => {
     if (!teamId) return; // teamId가 없으면 요청하지 않음
 
     try {
-      const response = await axios.get(`http://3.138.127.122:5000/api/cheersong/${process.env.REACT_APP_API_KEY}`); // API 요청
+      const response = await axios.get(`http://localhost:5000/api/cheersong/${process.env.REACT_APP_API_KEY}`); // API 요청
       setSongs(response.data);
     } catch (error) {
       console.error('Failed to fetch songs:', error);

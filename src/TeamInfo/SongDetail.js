@@ -16,7 +16,7 @@ const SongDetail = () => {
   useEffect(() => {
     const fetchSongDetail = async () => {
       try {
-        const response = await axios.get(`http://3.138.127.122:5000/api/cheersong/${process.env.REACT_APP_API_KEY}`); // 고정된 URL
+        const response = await axios.get(`http://localhost:5000/api/cheersong/${process.env.REACT_APP_API_KEY}`); // 고정된 URL
         const songData = response.data;
 
         // 응답이 객체인지 확인하고, ID를 비교

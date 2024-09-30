@@ -42,14 +42,14 @@ const ReviewWrite = () => {
                 formData.append('image', imageFile);
             }
 
-            const response = await axios.post(`http://3.138.127.122:5000/api/foodshopreview/${process.env.REACT_APP_API_KEY}`, formData, {
+            const response = await axios.post(`http://localhost:5000/api/foodshopreview/${process.env.REACT_APP_API_KEY}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'  
                 }
             });
 
             const uploadedImagePath = response.data.imagePath; // 서버로부터 이미지 경로 받기
-            setImagePreview(`http://3.138.127.122:5000/uploads/${uploadedImagePath}`);
+            setImagePreview(`http://localhost:5000/uploads/${uploadedImagePath}`);
 
             setReviews([...reviews, response.data]);
             navigate(-1);

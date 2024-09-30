@@ -25,7 +25,7 @@ const ComuDetail = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`http://3.138.127.122:5000/api/post/${apikey}/${id}`);
+                const response = await axios.get(`http://localhsot:5000/api/post/${apikey}/${id}`);
                 setItem(response.data); // 포스트 정보 상태 설정
                 setHeartCount(response.data.like_num); // 좋아요 수 초기화
                 setIsHearted(response.data.isHearted); // 좋아요 상태 초기화
@@ -33,7 +33,7 @@ const ComuDetail = () => {
 
                 // 포스트의 user_id로 사용자 정보 가져오기
                 if (response.data && response.data.user_id) {
-                    const userResponse = await axios.get(`http://3.138.127.122:5000/api/user/${apikey}/${response.data.user_id}`);
+                    const userResponse = await axios.get(`http://localhost:5000/api/user/${apikey}/${response.data.user_id}`);
                     setUser(userResponse.data); // 사용자 정보를 상태에 설정
                 } else {
                     console.error("포스트에 user_id가 없습니다."); // user_id가 없는 경우 로그
@@ -57,7 +57,7 @@ const ComuDetail = () => {
         setHeartCount(newHeartCount);
 
         try {
-            await axios.put(`http://3.138.127.122:5000/api/post/${apikey}/${item.id}`, {
+            await axios.put(`http://localhost:5000/api/post/${apikey}/${item.id}`, {
                 like_num: newHeartCount
             });
         } catch (error) {

@@ -16,7 +16,7 @@ const Homeground = () => {
     const fetchHomegroundData = async () => {
       try {
         // 고정된 API URL 사용
-        const response = await fetch("http://3.138.127.122:5000/api/homeground/6VVQ0SB-C3X4PJQ-J3DZ587-5FGKYD1"); 
+        const response = await fetch("http://localhost:5000/api/homeground/6VVQ0SB-C3X4PJQ-J3DZ587-5FGKYD1"); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

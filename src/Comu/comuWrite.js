@@ -48,7 +48,7 @@ const BaseballCommunityPost = () => {
       console.log('게시물 작성 데이터:', postToCreate); // 디버깅용 로그
 
       try {
-        const response = await axios.post(`http://3.138.127.122:5000/api/post/${apikey}`, postToCreate);
+        const response = await axios.post(`http://localhost:5000/api/post/${apikey}`, postToCreate);
         console.log(response.data); // 서버 응답 로그
 
         navigate(-1); // 이전 페이지로 돌아가기
